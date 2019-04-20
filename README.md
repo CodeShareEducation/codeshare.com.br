@@ -1,5 +1,7 @@
 # CodeShare
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f4e5c740-cc1a-453b-96e0-e11f3b70b243/deploy-status)](https://app.netlify.com/sites/sleepy-hamilton-0fded7/deploys)
+
 Essa é a **CodeShare**. Aqui você irá encontrar diversos materiais sobre tecnologia, principalmente sobre desenvolvimento de sistemas. Você terá acesso a artigos, vídeo-aulas, workshops e outros diversos tipos de materiais sobre as diversas tecnologias utilizadas no mercado.  
 
 Dessa forma você poderá conhecer novas tecnologias e metodologias e aperfeiçoar as que você já conhece!
