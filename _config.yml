@@ -110,4 +110,15 @@ links:
 
 
 # exclude my node related stuff
-exclude: ['package.json', 'src', 'node_modules']
+exclude: [
+  'package.json',
+  'src',
+  'node_modules',
+  'vendor/bundle/ruby',
+  'package-lock.json',
+  'README.md',
+  'gulpfile.js',
+  'initpost.sh'
+]
+
+include: ['_redirects', '_headers']
