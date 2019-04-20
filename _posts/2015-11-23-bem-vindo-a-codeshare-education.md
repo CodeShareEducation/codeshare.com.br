@@ -25,7 +25,7 @@ Agora utilizamos o sistema **Jekyll** juntamente com Github Pages para trazer a 
 
 ## Contribua para o Projeto
 
-Para você que deseja contribuir nos ajudando com algum material, basta dar um **Fork** em nosso **[repositório](https://github.com/CodeShareEducation/CodeShareEducation.github.io)** e enviar um **Pull Request** com seu material para que ele possa ser avaliado e postado.
+Para você que deseja contribuir nos ajudando com algum material, basta dar um **Fork** em nosso **[repositório](https://github.com/CodeShareEducation/codeshare.com.br)** e enviar um **Pull Request** com seu material para que ele possa ser avaliado e postado.
 
 A você que está aqui para aprender, seja bem vindo e que o nosso conteúdo possa ser de grande ajuda para você e para você que está aqui para contribuir, desde já agradeço pela ajuda em disseminar nosso conhecimento para aqueles que o buscam!!!
 

@@ -6,9 +6,6 @@
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.username }} - {{ site.user_description }}{% endif %}</title>
     <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-    <!-- Google Authorship Markup -->
-    <link rel="author" href="https://plus.google.com/+WendellAdriel?rel=author">
-
     <!-- Social: Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@{{site.twitter_username}}">
@@ -62,5 +59,4 @@
     <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
     <link rel="manifest" href="{{ "/assets/manifest.json" | prepend: site.baseurl }}">
-    <script charset="UTF-8" src="//cdn.sendpulse.com/28edd3380a1c17cf65b137fe96516659/js/push/646855835bf06af7de0ac5f1e8272ea3_0.js" async></script>
 </head>

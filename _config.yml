@@ -2,7 +2,7 @@
 description: "O conhecimento que você precisa, do jeito que você quer"
 baseurl: ""
 url: "https://codeshare.com.br"
-icon: https://raw.githubusercontent.com/CodeShareEducation/CodeShareEducation.github.io/master/src/img/icons/favicon.ico
+icon: https://codeshare.com.br/assets/img/icons/favicon.ico
 
 # User settings
 username: CodeShare

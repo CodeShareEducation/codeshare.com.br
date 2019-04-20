@@ -28,7 +28,7 @@ gem install jekyll bundler
 - Entre no repositório:
 
 ```
-cd CodeShareEducation.github.io
+cd codeshare.com.br
 ```
 
 - Execute os comandos:
