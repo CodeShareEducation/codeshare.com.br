@@ -80,6 +80,20 @@ compress_html:
   endings: []
   profile: false
 
+files_to_cache:
+  - '/assets/js/main.js'
+  - '/assets/css/main.css'
+  - '/assets/css/prism.css'
+  - '/assets/img/blog-image.png'
+  - '/assets/img/offline.jpg'
+
+pages_to_cache:
+  - '/autores/'
+  - '/categorias/'
+  - '/sobre/'
+  - '/tags/'
+  - '/offline/index.html'
+
 # Links to include in menu navigation
 # For external links add external: true
 links:
