@@ -1,14 +1,11 @@
 {
-  "name": "CodeShare Blog",
-  "short_name": "CodeShare Blog",
-  "start_url": "../index.html",
-  "display": "standalone",
-  "orientation": "portrait",
+  "name": "CodeShare",
+  "short_name": "CodeShare",
+  "start_url": "/",
+  "display": "minimal-ui",
   "lang": "pt-br",
   "background_color": "#fff",
   "theme_color": "#424a60",
-  "description": "CodeShare Platform Blog",
-  "prefer_related_applications": false,
   "icons": [{
     "src": "assets/img/icons/apple-touch-icon-60x60.png",
     "sizes": "60x60",
