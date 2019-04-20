@@ -1,0 +1,45 @@
+{
+  "name": "CodeShare",
+  "short_name": "CodeShare",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "lang": "pt-br",
+  "background_color": "#fff",
+  "theme_color": "#424a60",
+  "icons": [{
+    "src": "assets/img/icons/apple-touch-icon-60x60.png",
+    "sizes": "60x60",
+    "type": "image/png"
+    },
+    {
+      "src": "assets/img/icons/apple-touch-icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icons/apple-touch-icon-114x114.png",
+      "sizes": "114x114",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icons/apple-touch-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icons/apple-touch-icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icons/apple-touch-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/img/icons/apple-touch-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
