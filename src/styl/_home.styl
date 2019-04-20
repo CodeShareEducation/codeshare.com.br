@@ -14,16 +14,15 @@
             stack()
         .day
             mainFont(800)
-            color secondary
+            color darken(texts, 50%)
             font-size rem(80px)
             line-height 1.6
-            &:hover
-                color hover
             +below(cut)
                 stack()
         .month-year
-            color white
+            color darken(texts, 50%)
             font-size rem(18px)
+            font-weight bold
     .content
         col(5/6)
         +below(cut)
