@@ -7,8 +7,6 @@ image:
 description: 'Iniciando com Docker'
 tags:
 - docker
-categories:
-- Otimizando Workflow com Docker
 twitter_text: 'Iniciando com Docker'
 ---
 
@@ -94,12 +92,12 @@ docker rmi images
 docker run ubuntu
 ```
 
-  - Abaixo segue uma lista com algumas das variações do comando `docker run`:
+- Abaixo segue uma lista com algumas das variações do comando `docker run`:
 
-    - `docker run -i -t ubuntu /bin/bash:` Cria um container e acessa esse container em modo iterativo no bash
-    - `docker run -it ubuntu /bin/bash:` Tem o mesmo resultado do comando acima, é somente uma forma simplificada com `-it`
-    - `docker run --name myFirstContainer --rm -i -t ubuntu bash:` cria um container com nome `myFirstContainer`, a flag `--rm` indica que o container deve ser removido ao sairmos da sessão
-    - `docker run --name myFirstContainer ubuntu:` Cria um container com o nome de `myFirstContainer`
+  - `docker run -i -t ubuntu /bin/bash:` Cria um container e acessa esse container em modo iterativo no bash
+  - `docker run -it ubuntu /bin/bash:` Tem o mesmo resultado do comando acima, é somente uma forma simplificada com `-it`
+  - `docker run --name myFirstContainer --rm -i -t ubuntu bash:` cria um container com nome `myFirstContainer`, a flag `--rm` indica que o container deve ser removido ao sairmos da sessão
+  - `docker run --name myFirstContainer ubuntu:` Cria um container com o nome de `myFirstContainer`
 
 - Para listar todos os containers ativos:
 

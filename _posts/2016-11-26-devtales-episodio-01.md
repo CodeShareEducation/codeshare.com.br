@@ -6,8 +6,6 @@ author: wendell
 image: '/assets/img/devTales.png'
 description: 'Conheça um pouco mais sobre o grande Vinicius Reis'
 tags:
-- codeshare
-- devtales
 - podcast
 categories:
 - DevTales
@@ -37,8 +35,7 @@ Como eu disse acima, essa é a primeira vez que estou trabalhando em um **Podcas
 
 Depois de tanto falar, confira abaixo os links importantes para ter acesso ao conteúdo do **#devTales**:
 
-- **[Episódio #01 - Vinicius Reis](https://soundcloud.com/devtales/episodio-01-vinicius-reis)**
-- **[Feed (RSS) do Podcast](http://feeds.soundcloud.com/users/soundcloud:users:270822531/sounds.rss)**
+- **[Episódio #01 - Vinicius Reis](https://anchor.fm/dev-tales/episodes/Episdio-01---Vinicius-reis-e3ppja)**
 
 Apenas uma observação, já enviei o **Podcast** para o **iTunes** e estou esperando eles avaliarem e publicarem ele, então fiquem ligados que em breve o **#devTales** estará disponível lá!!!
 

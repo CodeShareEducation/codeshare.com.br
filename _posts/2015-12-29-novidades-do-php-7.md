@@ -3,12 +3,10 @@ layout: post
 title: "Novidades do PHP 7"
 date: 2015-12-29 15:37:24
 author: wendell
-image: '/assets/img/'
+image: ''
 description: 'Confira as maiores novidades que a nova versão do PHP está trazendo'
 tags:
 - php
-categories:
-- PHP 7
 twitter_text: 'Confira as maiores novidades que a nova versão do PHP está trazendo'
 ---
 
@@ -24,9 +22,9 @@ o dobro de requisições por segundo em comparação à versão anterior.
 ## Remoção de Itens Depreciados
 
 Alguns itens que já estavão nessa condição por algum tempo foram removidos, dessa maneira algumas aplicações podem parar de funcionar corretamente caso
-ainda utilizem algum desses itens.  
+ainda utilizem algum desses itens.
 
-Os itens removidos foram:  
+Os itens removidos foram:
 
 - As tags: <%, <%=, %>, < script language="php">;
 - A extensão **ereg** e com isso todas as funções da mesma (devendo utilizar a partir de agora a extensão **PCRE**);
@@ -52,10 +50,10 @@ Essa mudança veio para resolver diversas inconsistências ao resolver expressõ
 ```
 
 No **PHP 5** a expressão **$dog->$property['first']** é interpretada de uma forma incoerente com a interpretação padrão (esquerda para direita), pois ela é
-interpretada da seguinte forma: **$dog->{$property['first']}**.  
+interpretada da seguinte forma: **$dog->{$property['first']}**.
 
 No **PHP 7** a mesma expressão é interpretada da forma padrão (esquerda para direita) e fica da seguinte maneira: **{$dog->$property}['first']** fazendo com que
-essa expressão não funcione no **PHP 7**, pois **$property** é um array e não pode ser convertido em uma **String**.  
+essa expressão não funcione no **PHP 7**, pois **$property** é um array e não pode ser convertido em uma **String**.
 
 Mas com essa mudança outras expressões que nas versões anteriores eram inválidas agora passam a ser válidas, vamos ver alguns exemplos:
 
@@ -106,7 +104,7 @@ quando utilizamos mais de uma cláusula **default** em um **switch** o PHP retor
 As novas **exceptions** foram introduzidas para facilitar o tratamento de erros nas aplicações. As **Engine Exceptions** substituem os **Fatal Errors** e os
 **Recoverable Fatal Errors**, fazendo com que agora possamos capturar essas exceções e tratá-las. As novas **exceptions** foram introduzidas nessa versão de uma
 forma para manter a compatibilidade com versões anteriores. Para incorporar as novas **exceptions** com um impacto mínimo em códigos de versões anteriores, a
-**Hierarquia das Exceptions** teve de sofrer algumas mudanças. Veja abaixo:  
+**Hierarquia das Exceptions** teve de sofrer algumas mudanças. Veja abaixo:
 <ul>
   <li>
     Throwable interface
@@ -139,7 +137,7 @@ O operador **spacheship( <=> )** foi introduzido para nos ajudar a fazer compara
   $a <=> $b
 ```
 
-A expressão acima pode nos retornar três resultados diferentes, dependendo do valor das variáveis:  
+A expressão acima pode nos retornar três resultados diferentes, dependendo do valor das variáveis:
 
 - Retorna **-1** se **$a** for menor que **$b**;
 - Retorna **0** se **$a** e **$b** forem iguais;
@@ -221,6 +219,6 @@ outros tipos em seus métodos e funções, por exemplo objetos, etc.
 
 ## Conclusão
 
-Espero que esse artigo possa dar uma base nas novidades que o **PHP 7** trouxe para nós desenvolvedores e que vocês continuem estudando e aprofundando mais nos estudos da linguagem.  
+Espero que esse artigo possa dar uma base nas novidades que o **PHP 7** trouxe para nós desenvolvedores e que vocês continuem estudando e aprofundando mais nos estudos da linguagem.
 
 **Um grande abraço a todos!!! Espero que o artigo possa ajudar a melhorar seus conhecimentos!!! Até a próxima!!!**

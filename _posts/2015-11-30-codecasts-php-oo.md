@@ -3,13 +3,12 @@ layout: post
 title: "CodeCast sobre PHP OO"
 date: 2015-11-30 22:02:05
 author: wendell
-image: '/assets/img/'
+image: ''
 description: 'Série de vídeos sobre desenvolvimento com PHP OO'
 tags:
 - php
 - codecast
 categories:
-- CodeShare Education
 - CodeCasts
 twitter_text: 'Série de vídeos sobre desenvolvimento com PHP OO'
 ---

@@ -3,14 +3,10 @@ layout: post
 title: "Implementando Herança em JavaScript"
 date: 2016-02-05 17:27:01
 author: wendell
-image: '/assets/img/'
+image: ''
 description: 'Aprenda como implementar herança em JavaScript utilizando: prototype, call e Object.create()'
 tags:
 - javascript
-- orientação a objetos
-- herança
-categories:
-- JavaScript Orientado a Objetos
 twitter_text: 'Aprenda como implementar herança em JavaScript utilizando: prototype, call e Object.create()'
 ---
 
@@ -19,23 +15,24 @@ twitter_text: 'Aprenda como implementar herança em JavaScript utilizando: proto
 ## Entendendo o que é uma classe
 
 Antes de explicar como funciona a `herança` em JavaScript, devemos entender primeiro o que
-é uma `classe`.  
+é uma `classe`
 
 Uma `classe` nada mais é do que um `modelo` para se criar `objetos`. Esse modelo descreve as
 `características` e `comportamentos` que todos objetos terão.
 
-As `características` são os `atributos` e os `comportamentos` são os `métodos(funções)` das classes.  
+As `características` são os `atributos` e os `comportamentos` são os `métodos(funções)` das classes.
 
 Imagine se a `Terra` começasse a abrigar `alienígenas` e os governos quisessem manter o controle de
 todos que estivessem vivendo aqui e para cada `alienígena` tivéssemos de saber seu `nome`, `idade` e `planeta`.
-Criando um objeto teríamos:  
+Criando um objeto teríamos:
+
 ```javascript
 var alien = {
   name : 'IOAS3356',
   age : 159,
   planet : 'Pluto'
 };
-```  
+```
 
 Mas isso seria inviável pois teríamos diversos `alienígenas` de diferentes planetas e teríamos que repetir
 esse código em todo nosso programa. Então poderíamos criar uma `classe` para esse fim.
@@ -44,9 +41,9 @@ esse código em todo nosso programa. Então poderíamos criar uma `classe` para 
 
 Antes de sair o **ECMAScript 6**, o JavaScript apenas `simula` uma `classe` utilizando uma função. Essa função
 é conhecida como `função construtora` e como o próprio nome indica, ela é responsável por criar novos `objetos`.
-A chamada para essa função se diferencia de funções comuns, pois deve ser feita através da palavra reservada `new`.  
+A chamada para essa função se diferencia de funções comuns, pois deve ser feita através da palavra reservada `new`.
 
-Vamos agora criar a nossa classe `Alien` para nosso **SRART - Sistema de Registro de Alienígenas Residentes na Terra:**  
+Vamos agora criar a nossa classe `Alien` para nosso **SRART - Sistema de Registro de Alienígenas Residentes na Terra:**
 
 ```javascript
 // Função construtura responsável por criar objetos Alien
@@ -61,9 +58,9 @@ function Alien(name, age, planet) {
     console.log('#$#: ' + this.name + '! OADPL$%)@@#: ' + this.planet);
   };
 };
-```  
+```
 
-Agora que criamos a nossa classe, podemos criar diversos objetos utilizando ela:  
+Agora que criamos a nossa classe, podemos criar diversos objetos utilizando ela:
 
 ```javascript
 // Criamos um objeto com os valores que passamos para a função construtura
@@ -74,7 +71,7 @@ alien_one.greeting();
 // Criando outro objeto Alien
 var alien_two = new Alien('ADVQ4490', 227, 'Mars');
 alien_two.greeting();
-```  
+```
 
 > Vocês podem ver que utilizei a palavra reservada `this` na hora de criar os `atributos` e o `método` de
 nossa classe. Fiz isso, pois essa palavra está referenciando o `objeto` que será criado. Como podem ver
@@ -83,12 +80,10 @@ objeto que criarmos terá um método. Vamos ver a forma correta de se fazer mais
 
 ## Herança em JavaScript
 
-Primeiramente vamos entender o que é `herança`:  
+Primeiramente vamos entender o que é `herança`:
 
 > É um mecanismo onde uma classe pai (superclasse) passa suas características para classes filhas (subclasses).
-Uma classe que herda as características de outra pode ter características próprias além das herdadas.  
-  
-Como no JavaScript as `classes` são `simuladas`, não podemos implementar a `herança` como outras linguagens
+Uma classe que herda as características de outra pode ter características próprias além das herdadas. Como no JavaScript as `classes` são `simuladas`, não podemos implementar a `herança` como outras linguagens
 orientadas a objetos, devemos utilizar algumas técnicas que veremos a seguir.
 
 ## Herança utilizando `prototype`, `call` e `Object.create()`
@@ -96,9 +91,9 @@ orientadas a objetos, devemos utilizar algumas técnicas que veremos a seguir.
 ### Prototype
 
 Todas as `funções` no JavaScript contém a propriedade `prototype` que vem vazia, mas pode ser alterada. Essa
-propriedade é tratada como um `objeto` e nela podemos `anexar atributos e métodos`.  
+propriedade é tratada como um `objeto` e nela podemos `anexar atributos e métodos`.
 
-Alterando a nossa classe `Alien` criada anteriormente para utilizar o `prototype`, ficaria assim:  
+Alterando a nossa classe `Alien` criada anteriormente para utilizar o `prototype`, ficaria assim:
 
 ```javascript
 // Função construtura responsável por criar objetos Alien
@@ -119,7 +114,7 @@ alien_one.greeting();
 
 var alien_two = new Alien('ADVQ4490', 227, 'Mars');
 alien_two.greeting();
-```  
+```
 
 Como vocês podem ver, a `instanciação` de nossos `objetos` e a chamada do método `greeting()` não foi alterada, mas
 então o que mudou? Antes teríamos dois objetos, cada um com seu método `greeting()` e agora utilizando o `prototype`,
@@ -130,7 +125,7 @@ podem ainda acessar os valores do `objeto` declarados dentro da `função constr
 
 Imagine agora que o nosso sistema **SRART** deve separar os `alienígenas` por `espécie` e que além dos dados gravados
 precisamos também de registrar dados específicos de cada `espécie`. Iremos fazer o uso do `prototype` para transformar a nossa classe
-`Alien` em uma `Classe Pai` e iremos criar duas `Classe Filhas`:  
+`Alien` em uma `Classe Pai` e iremos criar duas `Classe Filhas`:
 
 ```javascript
 // Função construtura responsável por criar objetos Gray
@@ -164,7 +159,7 @@ Com isso fazemos com que o `prototype` de nossas `Classes Filhas` herdem todas a
 
 #### Utilizando as propriedades herdadas
 
-Agora vamos criar um novo `método` que vai puxar o relatório de um `alienígena` e anexar no `prototype` das nossas `Classes Filhas`:  
+Agora vamos criar um novo `método` que vai puxar o relatório de um `alienígena` e anexar no `prototype` das nossas `Classes Filhas`:
 
 ```javascript
 // Método para imprimir relatório de um Gray
@@ -182,10 +177,10 @@ Reptilian.prototype.showRegistry = function() {
   console.log('Planet: ' + this.planet);
   console.log('Skin Color: ' + this.skinColor);
 };
-```  
+```
 
 Agora podemos cadastrar em nosso sistema **SRART** novos `alienígenas` utilizando nossas `Classes Filhas` ao invés de nossa
-`Classe Pai` e puxar o relatório das mesmas:  
+`Classe Pai` e puxar o relatório das mesmas:
 
 ```javascript
 // Criando nosso primeiro Gray
@@ -195,7 +190,7 @@ gray_one.showRegistry();
 // Criando nosso primeiro Reptilian
 var reptilian_one = new Reptilian('ADVQ4490', 227, 'Mars', 'Red');
 reptilian_one.showRegistry();
-```  
+```
 
 > Há outras formas de se implementar a herança em JavaScript, até mesmo formas mais simples com o **ECMAScript 6**,
 mas deixarei para falar sobre essas formas em um próximo artigo! xD

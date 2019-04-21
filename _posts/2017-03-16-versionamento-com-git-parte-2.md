@@ -1,15 +1,14 @@
 ---
 layout: post
-title: "Versionamento com Git Parte 2"
+title: "Versionamento com Git #02"
 date: 2017-03-16 17:39:48
 author: mcqueide
 image:
 description: 'Aprendendo a versionar projetos com Git'
 tags:
 - git
-- versionamento
 categories:
-- Controle de versão
+- Aprendendo sobre versionamento com Git
 twitter_text: 'Aprendendo a versionar projetos com Git'
 ---
 
@@ -28,7 +27,7 @@ twitter_text: 'Aprendendo a versionar projetos com Git'
 
 ## Introdução
 
-No **[artigo anterior](http://blog.codeshare.com.br/versionamento-com-git/)** sobre Git, abordamos muitas operações porém com cenários bem simples. Em nenhum deles tivemos alteração concorrentes por usuários diferentes em um mesmo arquivo. E isso é algo comum de acontecer em um ambiente de trabalho. Quando isso ocorre nem sempre a ferramenta consegue realizar os merges de forma automática, e essa tarefa acaba virando responsabilidade de quem está operando o repositório. Veremos como deixar essas tarefas mais fáceis.
+No **[artigo anterior](https://codeshare.com.br/versionamento-com-git/)** sobre Git, abordamos muitas operações porém com cenários bem simples. Em nenhum deles tivemos alteração concorrentes por usuários diferentes em um mesmo arquivo. E isso é algo comum de acontecer em um ambiente de trabalho. Quando isso ocorre nem sempre a ferramenta consegue realizar os merges de forma automática, e essa tarefa acaba virando responsabilidade de quem está operando o repositório. Veremos como deixar essas tarefas mais fáceis.
 
 Se você também está cansado de ficar digitando suas senhas toda vez que vai realizar um push, ensinaremos como utilizar as **chaves SSH**, onde antes de toda operação de push, o git irá procurar por ela e usá-la para sua autenticação no repositório remoto. Nesse artigo você também aprenderá sobre os alias, chega de ficar digitando tantos comandos um atrás de outros para tarefas que você acaba tendo que executar várias vezes.
 
@@ -413,7 +412,7 @@ mcqueide:/tmp/repo/treinamentoGit $ git commit -am "Alterando título da página
    1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 
-Enquanto isso o **macaulay** está realizando sua atividade na sua branch particular,  ele define o rodapé da página, e o altera para `TreinamentoGit CopyRight 2017`.
+Enquanto isso o **macaulay** está realizando sua atividade na sua branch particular, ele define o rodapé da página, e o altera para `TreinamentoGit CopyRight 2017`.
 
 Então o usuário **mcqueide** irá enviar seu `commit` para a branch master, lembrando que o commit que ele realizou foi na branch particular dele, então primeiros temos que levar esse commit para a branch master e depois enviá-lo para o repositório remoto. Primeiro ele faz o **checkout** para branch master, executa o `git pull` para ter certeza se não novas alterações, e em seguida faz o `merge` da **branch master** com sua branch. Depois de realizar o **merge**, se executarmos o `git log` veremos que o commit que ele realizou na **branch mcqueide**, já se encontra na branch master, então podemos enviar para o repositório remoto com o `git push`.
 

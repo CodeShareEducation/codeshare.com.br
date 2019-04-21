@@ -3,13 +3,12 @@ layout: post
 title: "Bem Vindo à CodeShare Education"
 date: 2015-11-23 21:30:10
 author: wendell
-image: '/assets/img/'
+image: ''
 description: 'Post de Boas Vindas à CodeShare Education'
 tags:
 - codeshare
-- novidades
 categories:
-- CodeShare Education
+- Tudo sobre a CodeShare
 twitter_text: 'Post de Boas Vindas à CodeShare Education'
 ---
 

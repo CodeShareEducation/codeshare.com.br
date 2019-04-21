@@ -3,13 +3,10 @@ layout: post
 title: "Preparando para a Certificação PHP"
 date: 2015-11-25 20:15:33
 author: wendell
-image: '/assets/img/'
+image: ''
 description: 'Saiba como se registrar para o exame de Certificação PHP da Zend e confira várias dicas de estudo para se preparar'
 tags:
 - php
-- certificações
-categories:
-- Preparando para Certificações
 twitter_text: 'Saiba como se registrar para o exame de Certificação PHP da Zend e confira várias dicas de estudo para se preparar'
 ---
 
@@ -70,7 +67,7 @@ Muitas pessoas me perguntaram como me preparei para a prova e quero ressaltar al
 - Caso você trabalhe com PHP no dia-a-dia a sua jornada de estudos será bem menor do que outras pessoas, pois você terá de se preparar apenas para o Exame, pois se preparar para o Exame e conhecer a linguagem são duas coisas diferentes, algumas pessoas podem conhecer muito bem a linguagem, mas não estar acostumadas com o tipo do Exame e acabarem se dando mal.
 - Você que ainda não tem um domínio da linguagem não precisa ter medo da prova, se você estudar e se preparar você vai conseguir, não é um bicho de sete cabeças a prova. Manter a calma também é um ponto muito importante na hora do Exame.
 - Caso esteja sem grana, há muitos materiais bons gratuitos e uma comunidade legal para te ajudar a preparar. Os materiais que usei foram do grupo: **[Rumo à Certificação PHP](https://groups.google.com/forum/?hl=pt&fromgroups#!forum/rumo-a-certificacao-php)**. Aproveite e entre no **[Grupo do Facebook](https://www.facebook.com/groups/434330716587436/)** para ajudar ou ter ajuda de outras pessoas que também estão se preparando ou até mesmo passaram na prova!
-- Não deixe de marcar o exame!!! Depois de comprar o voucher, marque seu exame em um tempo que você consiga estudar, mas não deixe de marcar, pois isso irá obrigar você a se dedicar e estudar para ele. Eu peguei meu voucher no começo do ano, mas não marquei o exame  fui adiando todo mês até que no meio do mês outubro resolvi marcar meu exame para o meio do mês de novembro e deu tudo certo!!
+- Não deixe de marcar o exame!!! Depois de comprar o voucher, marque seu exame em um tempo que você consiga estudar, mas não deixe de marcar, pois isso irá obrigar você a se dedicar e estudar para ele. Eu peguei meu voucher no começo do ano, mas não marquei o exame fui adiando todo mês até que no meio do mês outubro resolvi marcar meu exame para o meio do mês de novembro e deu tudo certo!!
 
 O primeiro passo que você deve fazer é analisar todos os dez tópicos que são cobrados no exame e separá-los em três categorias, de acordo com seu nível de conhecimento em cada um:
 
@@ -80,7 +77,7 @@ O primeiro passo que você deve fazer é analisar todos os dez tópicos que são
 
 Com esse esquema criado, você irá definir atacar primeiro os tópicos classificados como “Ruim”, depois os classificados como “Normal” e por último os classificados como “Bom”. A cada semana faça uma reavaliação no esquema e quando se sentir confortável poderá realizar o exame. Eu estudei três meses para fazer o exame, mas esse tempo vai variar de acordo com cada pessoa!!
 
-Toda semana eu realizava um simulado e as duas últimas semanas deixei dedicado apenas para realizar simulados e apenas tirava dúvidas das questões que eu errava durante os simulados. Para os simulados recomendo esse **[aplicativo](https://play.google.com/store/apps/details?id=com.quiz.php)**!!! Ele realmente me ajudou muito na minha preparação,  pois eu podia acessar durante minha ida e volta ao trabalho ou em uma festa chata kkkkkk!!! Enfim, foi de grande valia na minha preparação!!!
+Toda semana eu realizava um simulado e as duas últimas semanas deixei dedicado apenas para realizar simulados e apenas tirava dúvidas das questões que eu errava durante os simulados. Para os simulados recomendo esse **[aplicativo](https://play.google.com/store/apps/details?id=com.quiz.php)**!!! Ele realmente me ajudou muito na minha preparação, pois eu podia acessar durante minha ida e volta ao trabalho ou em uma festa chata kkkkkk!!! Enfim, foi de grande valia na minha preparação!!!
 
 Outra grande ferramenta indispensável para a preparação é a própria **[Documentação do PHP](http://php.net/)**!!! Utilizem como guia para tirar dúvidas e saber mais sobre funções importantes da linguagem!!!
 

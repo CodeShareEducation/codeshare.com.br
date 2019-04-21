@@ -6,11 +6,7 @@ author: wendell
 image:
 description: 'Aprenda a usar Goroutines e Channels em Go'
 tags:
-- golang
-- concurrency
-categories:
-- Linguagem Go
-- Programação Concorrente
+- go
 twitter_text: 'Aprenda a usar Goroutines e Channels em Go'
 ---
 

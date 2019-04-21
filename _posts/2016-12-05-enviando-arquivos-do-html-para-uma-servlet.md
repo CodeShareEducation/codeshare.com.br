@@ -7,10 +7,6 @@ image:
 description: 'Aprenda como enviar arquivos de um formúlario html para uma servlet'
 tags:
 - java
-- servlet
-- io
-categories:
-- Java IO
 twitter_text: 'Aprenda como enviar arquivos de um formúlario html para uma servlet'
 ---
 
@@ -36,21 +32,21 @@ Vamos começar pelo nosso html que contém um formulário bem simples.
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Upload arquivo</title>
+    <title>Upload arquivo</title>
 </head>
 <body>
-	<form action="upload" enctype="multipart/form-data" method="post">
-		<p>Enviar Arquivo:
-			<input type="file" name="arquivo" />
-		</p>
-		<p>
-			<input type="checkbox" name="inspecionar" value="yes" />
-			Gostaria de visualizar o arquivo?
-		</p>
-		<p>
-			<input type="submit" value="Enviar" />
-		</p>
-	</form>
+    <form action="upload" enctype="multipart/form-data" method="post">
+        <p>Enviar Arquivo:
+            <input type="file" name="arquivo" />
+        </p>
+        <p>
+            <input type="checkbox" name="inspecionar" value="yes" />
+            Gostaria de visualizar o arquivo?
+        </p>
+        <p>
+            <input type="submit" value="Enviar" />
+        </p>
+    </form>
 </body>
 </html>
 ```
@@ -64,55 +60,55 @@ O atributo **enctype** informa que também será enviado arquivo por esse formul
 @MultipartConfig(fileSizeThreshold=1000000,maxRequestSize=10000000L)
 public class Upload extends HttpServlet {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public static String getFileName(Part p) {
-		String h = p.getHeader("content-disposition");
-		String[] sections = h.split("\\s*;\\s*");
-		for(String s:sections) {
-			if(s.startsWith("filename=")) {
-				return s.substring(9).replace("\"", "");
-			}
-		}
-		return null;
-	}
+    public static String getFileName(Part p) {
+        String h = p.getHeader("content-disposition");
+        String[] sections = h.split("\\s*;\\s*");
+        for(String s:sections) {
+            if(s.startsWith("filename=")) {
+                return s.substring(9).replace("\"", "");
+            }
+        }
+        return null;
+    }
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
-		Part p = null;
-		try {
-			p = req.getPart("arquivo");
-		} catch(IllegalStateException ise) {
-			resp.sendError(HttpServletResponse.SC_REQUEST_ENTITY_TOO_LARGE);
-			return;
-		}
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        Part p = null;
+        try {
+            p = req.getPart("arquivo");
+        } catch(IllegalStateException ise) {
+            resp.sendError(HttpServletResponse.SC_REQUEST_ENTITY_TOO_LARGE);
+            return;
+        }
 
-		if(p==null) {
-			resp.sendError(HttpServletResponse.SC_BAD_REQUEST,"Expected file1 part");
-			return;
-		}
+        if(p==null) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST,"Expected file1 part");
+            return;
+        }
 
-		String mimeType = p.getContentType();
-		long fileSize = p.getSize();
-		String originalFileName = Upload.getFileName(p);
+        String mimeType = p.getContentType();
+        long fileSize = p.getSize();
+        String originalFileName = Upload.getFileName(p);
 
-		if("yes".equals(req.getParameter("inspecionar"))) {
-			InputStream is = p.getInputStream();
-			ServletOutputStream outputStream = resp.getOutputStream();
-			byte[] buffer = new byte[1024];
-			int bytes;
-			while((bytes=is.read(buffer))!=-1) {
-				outputStream.write(buffer, 0, bytes);
-			}
+        if("yes".equals(req.getParameter("inspecionar"))) {
+            InputStream is = p.getInputStream();
+            ServletOutputStream outputStream = resp.getOutputStream();
+            byte[] buffer = new byte[1024];
+            int bytes;
+            while((bytes=is.read(buffer))!=-1) {
+                outputStream.write(buffer, 0, bytes);
+            }
 
-			is.close();
-			return;
-		} else {
-			p.delete();
-			resp.sendRedirect("envio_ok.html");
-		}
-	}
+            is.close();
+            return;
+        } else {
+            p.delete();
+            resp.sendRedirect("envio_ok.html");
+        }
+    }
 }
 ```
 
@@ -124,7 +120,7 @@ Do lado da nossa Servlet temos a declaração dela e a definição de qual ender
 
 Nessa anotação estamos determinando o tamanho máximo do arquivo enviado através do atributo `fileSizeThreshold` com um valor de **10MB** e o tamanho máximo do request.
 
-Para receber o request do cliente devemos sobrescrever  o método `doPost`, já que o nosso form está sendo enviado através do método post. Agora temos acesso ao arquivo que o usuário enviou através do método `req.getPart("arquivo");`. Ele nos devolve um objeto **Part**, cujo podemos obter o **stream** deste arquivo através do `p.getInputStream();`. A partir daí podemos fazer o que bem quisermos.
+Para receber o request do cliente devemos sobrescrever o método `doPost`, já que o nosso form está sendo enviado através do método post. Agora temos acesso ao arquivo que o usuário enviou através do método `req.getPart("arquivo");`. Ele nos devolve um objeto **Part**, cujo podemos obter o **stream** deste arquivo através do `p.getInputStream();`. A partir daí podemos fazer o que bem quisermos.
 
 No exemplo foi apenas realizado a leitura do arquivo e o mesmo foi escrito na resposta de volta para o navegador (caso ele selecione o inspecionar) e caso contrário o usuário é apenas redirecionado para outra página que o informa do sucesso do envio.
 

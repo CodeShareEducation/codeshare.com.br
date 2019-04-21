@@ -7,11 +7,7 @@ image:
 description: 'Conheça um pouco sobre o Framework Aurelia'
 tags:
 - javascript
-- framework
-- es6
 - aurelia
-categories:
-- Frameworks JavaScript
 twitter_text: 'Conheça um pouco sobre o Framework Aurelia'
 ---
 
@@ -292,7 +288,7 @@ export class SquarePanelCustomAttribute {
 // format-date.js
 import moment from 'moment';
 
-export class FormatDateValueConverter  {
+export class FormatDateValueConverter {
   toView(value) {
     return moment(value).format('D/M/YYYY');
   }
@@ -383,7 +379,7 @@ Vamos fazer uma simples aplicação para mostrar uma mensagem, mas criando um **
 Dentro do diretório `src/resources/value-converters` crie um arquivo chamado `capitalize-words.js`. Nesse arquivo coloque o seguinte código:
 
 ```javascript
-export class CapitalizeWordsValueConverter  {
+export class CapitalizeWordsValueConverter {
   toView(value) {
     return value.replace(/\b\w/g, l => l.toUpperCase());
   }

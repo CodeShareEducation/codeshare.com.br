@@ -3,21 +3,18 @@ layout: post
 title: "Entendendo o async e o await em JavaScript"
 date: 2016-03-29 13:26:58
 author: wendell
-image: '/assets/img/'
+image: ''
 description: 'Aprenda como trabalhar com async e await antes de chegarem oficialmente ao JS'
 tags:
-- traducoes
 - javascript
-- es6
 categories:
 - Traduções
-- Indo além com JavaScript
 twitter_text: 'Aprenda como trabalhar com async e await antes de chegarem oficialmente ao JS'
 ---
 
 ## Introdução
 
-As funcionalidades `async` / `await` não conseguiram chegar para o ES6, mas isso não significa que elas não irão chegar ao JavaScript. Enquanto escrevo esse post, ela é uma proposta na [fase 3](https://github.com/tc39/ecma262/tree/82bebe057c9fca355cfbfeb36be8e42f18c61e94) e está sendo trabalhada ativamente. As funcionalidades já estão no [Edge](https://blogs.windows.com/msedgedev/2015/09/30/asynchronous-code-gets-easier-with-es2016-async-function-support-in-chakra-and-microsoft-edge/) e devem chegar a outros browsers assim que chegar na [fase 4](https://twitter.com/bterlson/status/692464374842290176) - pavimentando seu caminho para inclusão na próxima edição da linguagem (veja também: [Processo TC39](https://tc39.github.io/process-document/)).  
+As funcionalidades `async` / `await` não conseguiram chegar para o ES6, mas isso não significa que elas não irão chegar ao JavaScript. Enquanto escrevo esse post, ela é uma proposta na [fase 3](https://github.com/tc39/ecma262/tree/82bebe057c9fca355cfbfeb36be8e42f18c61e94) e está sendo trabalhada ativamente. As funcionalidades já estão no [Edge](https://blogs.windows.com/msedgedev/2015/09/30/asynchronous-code-gets-easier-with-es2016-async-function-support-in-chakra-and-microsoft-edge/) e devem chegar a outros browsers assim que chegar na [fase 4](https://twitter.com/bterlson/status/692464374842290176) - pavimentando seu caminho para inclusão na próxima edição da linguagem (veja também: [Processo TC39](https://tc39.github.io/process-document/)).
 
 Nós já ouvimos falar dessas funcionalidades por um tempo, mas vamos agora aprofundar nelas e ver como elas funcionam. Para que você consiga dominar o que vai ser falado nesse artigo, você precisará ter um entendimento sólido de promises e generators. Segue alguns recursos que podem te ajudar:
 
@@ -29,7 +26,7 @@ Nós já ouvimos falar dessas funcionalidades por um tempo, mas vamos agora apro
 
 ## Utilizando Promises
 
-Vamos supor que tenhamos o código abaixo. Aqui eu estou encapsulando uma chamada `HTTP` em uma `Promise`. A promise executa o `body` caso haja sucesso e é rejeitada com um `err` caso contrário. Ela puxa o HTML de um artigo aleatório [desse blog](https://ponyfoo.com/) toda vez que é executada.  
+Vamos supor que tenhamos o código abaixo. Aqui eu estou encapsulando uma chamada `HTTP` em uma `Promise`. A promise executa o `body` caso haja sucesso e é rejeitada com um `err` caso contrário. Ela puxa o HTML de um artigo aleatório [desse blog](https://ponyfoo.com/) toda vez que é executada.
 
 ```javascript
 var request = require('request');
@@ -46,7 +43,7 @@ function getRandomPonyFooArticle () {
 }
 ```
 
-Uma utilização típica da promise mostrada anteriormente está no código abaixo. Nele nós construímos um encadeamento de promises transformando o HTML da página em Markdown de um subconjunto de seu DOM e então imprimimos de forma amigável no terminal utilizando um `console.log`. Sempre lembre de adicionar um `.catch` para suas promises.  
+Uma utilização típica da promise mostrada anteriormente está no código abaixo. Nele nós construímos um encadeamento de promises transformando o HTML da página em Markdown de um subconjunto de seu DOM e então imprimimos de forma amigável no terminal utilizando um `console.log`. Sempre lembre de adicionar um `.catch` para suas promises.
 
 ```javascript
 var hget = require('hget');
@@ -101,15 +98,15 @@ getRandomPonyFooArticle(function* printRandomArticle () {
 });
 ```
 
-> Lembre-se que você deve encapsular a chamada ao yield em um bloco try / catch para preservar o tratamento de erros que adicionamos quando usamos promises.  
+> Lembre-se que você deve encapsular a chamada ao yield em um bloco try / catch para preservar o tratamento de erros que adicionamos quando usamos promises.
 
 Nem precisamos falar que usar generators dessa maneira não permite que escalemos bem nossas aplicações. Além de envolver uma sintaxe não intuitiva nessa mistura, seu código iterador será altamente acoplado ao generator que está sendo consumido. Isso faz com que você terá de modificar ele toda vez que uma nova expressão de `await` for inserida no generator. A melhor alternativa é utilizar uma nova funcionalidade que está chegando: **Funções Assíncronas**.
 
 ## Utilizando `async` / `await`
 
-Quando as **Funções Assíncronas** finalmente chegarem, seremos capazes de pegar nossa implementação baseada em promises e tirar a vantagem do estilo de ***"aparência síncrona"*** dos generators. Outro benefício dessa abordagem é que não teremos que alterar o `getRandomPonyFooArticle`, enquanto ele retornar uma promise ele poderá ser aguardado.  
+Quando as **Funções Assíncronas** finalmente chegarem, seremos capazes de pegar nossa implementação baseada em promises e tirar a vantagem do estilo de ***"aparência síncrona"*** dos generators. Outro benefício dessa abordagem é que não teremos que alterar o `getRandomPonyFooArticle`, enquanto ele retornar uma promise ele poderá ser aguardado.
 
-Perceba que o `await` só poderá ser utilizado em funções marcadas com a palavra chave `async`. Ele funciona similarmente aos generators, suspendendo a execução em seu contexto até que a promise seja entregue. Se a expressão esperada não for uma promise, ela é transformada em uma promise.  
+Perceba que o `await` só poderá ser utilizado em funções marcadas com a palavra chave `async`. Ele funciona similarmente aos generators, suspendendo a execução em seu contexto até que a promise seja entregue. Se a expressão esperada não for uma promise, ela é transformada em uma promise.
 
 ```javascript
 read();
@@ -128,7 +125,7 @@ async function read () {
 }
 ```
 
-> Novamente - assim como os generators - lembre-se que você deverá encapsular o await em um bloco try / catch para que possamos capturar e tratar erros esperados das promises das funções assíncronas.  
+> Novamente - assim como os generators - lembre-se que você deverá encapsular o await em um bloco try / catch para que possamos capturar e tratar erros esperados das promises das funções assíncronas.
 
 Além disso, uma **Função Assíncrona** sempre irá retornar uma `Promise`. Essa promise é rejeitada em caso de exceções não tratadas ou é resolvida e enviada como retorno da função assíncrona caso contrário. Isso nos permite invocar uma Função assíncrona e misturar isso com uma continuação baseada em promises normalmente. O exemplo a seguir mostra como as duas maneiras podem ser combinadas.
 
@@ -145,7 +142,7 @@ asyncFun().then(x => console.log(`x: ${x}`));
 // <- 'x: 4'
 ```
 
-Voltando ao nosso exemplo anterior, ele mostra que podemos usar o `return txt` da nossa função `async read` e permitir que os "consumidores" possam dar continuidade utilizando promises ou até mesmo uma outra **Função Assíncrona**. Dessa maneira, nossa função read deve se preocupar apenas com imprimir um markdown de forma legível no terminal de um artigo aleatório do Pony Foo.  
+Voltando ao nosso exemplo anterior, ele mostra que podemos usar o `return txt` da nossa função `async read` e permitir que os "consumidores" possam dar continuidade utilizando promises ou até mesmo uma outra **Função Assíncrona**. Dessa maneira, nossa função read deve se preocupar apenas com imprimir um markdown de forma legível no terminal de um artigo aleatório do Pony Foo.
 
 ```javascript
 async function read () {
@@ -162,7 +159,7 @@ async function read () {
 }
 ```
 
-Então você poderá adicionar mais tarde um `await read()` em outra **Função Assíncrona**.  
+Então você poderá adicionar mais tarde um `await read()` em outra **Função Assíncrona**.
 
 ```javascript
 async function write () {
@@ -171,7 +168,7 @@ async function write () {
 }
 ```
 
-Ou poderá simplesmente utilizar promises para dar continuação.  
+Ou poderá simplesmente utilizar promises para dar continuação.
 
 ```javascript
 read().then(txt => console.log(txt));
@@ -179,11 +176,11 @@ read().then(txt => console.log(txt));
 
 ## Bifurcação no caminho
 
-No fluxo assíncrono de código é comum executar duas ou mais tarefas concorrentemente. Enquanto as **Funções Assíncronas** facilitam a escrita de código assíncrono, elas também transformam elas mesmas em um código que é serial, ou seja, código que executa uma operação por vez. Uma função com múltiplos `await` irá ser suspensa uma vez em cada `await` até que a `Promise` chegue (antes de retomar a execução e mover para o próximo `await`, não diferente de como podemos ver com os generators e o `yield`).  
+No fluxo assíncrono de código é comum executar duas ou mais tarefas concorrentemente. Enquanto as **Funções Assíncronas** facilitam a escrita de código assíncrono, elas também transformam elas mesmas em um código que é serial, ou seja, código que executa uma operação por vez. Uma função com múltiplos `await` irá ser suspensa uma vez em cada `await` até que a `Promise` chegue (antes de retomar a execução e mover para o próximo `await`, não diferente de como podemos ver com os generators e o `yield`).
 
-Para contornar isso você pode usar o `Promise.all` para criar uma única promise que você irá dar o `await` nela. O único problema é pegar o hábito de utilizar o `Promise.all` ao invés de deixar tudo ocorrer em série, como também pode diminuir a performance do seu código.  
+Para contornar isso você pode usar o `Promise.all` para criar uma única promise que você irá dar o `await` nela. O único problema é pegar o hábito de utilizar o `Promise.all` ao invés de deixar tudo ocorrer em série, como também pode diminuir a performance do seu código.
 
-O exemplo a seguir mostra como você pode utilizar o `await` em três diferentes promises que poderiam ser executadas concorrentemente. Dado que o `await` suspende a sua **Função Assíncrona** e que o `await Promise.all` resulta em um **array de results**, nós podemos desestruturar para puxar resultados individualmente do array.  
+O exemplo a seguir mostra como você pode utilizar o `await` em três diferentes promises que poderiam ser executadas concorrentemente. Dado que o `await` suspende a sua **Função Assíncrona** e que o `await Promise.all` resulta em um **array de results**, nós podemos desestruturar para puxar resultados individualmente do array.
 
 ```javascript
 async function concurrent () {
@@ -191,7 +188,7 @@ async function concurrent () {
 }
 ```
 
-Até um tempo atrás havia uma alternativa para o código acima: `await*`, onde você não precisava encapsular as promises com o `Promise.all`. O **Babel 5** ainda suporta essa sintaxe, mas ela foi tirada da documentação e também do **Babel 6**.  
+Até um tempo atrás havia uma alternativa para o código acima: `await*`, onde você não precisava encapsular as promises com o `Promise.all`. O **Babel 5** ainda suporta essa sintaxe, mas ela foi tirada da documentação e também do **Babel 6**.
 
 ```javascript
 async function concurrent () {
@@ -199,7 +196,7 @@ async function concurrent () {
 }
 ```
 
-Você ainda pode utilizar algo como `all = Promise.all.bind(Promise)` para obter uma alternativa ao `Promise.all`. Partindo desse ponto, você pode fazer o mesmo para o `Promise.race`, que não tinha um equivalente para `await*`.  
+Você ainda pode utilizar algo como `all = Promise.all.bind(Promise)` para obter uma alternativa ao `Promise.all`. Partindo desse ponto, você pode fazer o mesmo para o `Promise.race`, que não tinha um equivalente para `await*`.
 
 ```javascript
 const all = Promise.all.bind(Promise);
@@ -210,11 +207,11 @@ async function concurrent () {
 
 ## Tratamento de Erros
 
-Note que ***erros são engolidos "silenciosamente"*** nas **Funções Assíncronas** - assim como em `Promises` normais. A menos que você adicione blocos `try` / `catch` ao redor de chamadas `await`, exceções não capturadas - independentemente se ocorreram no corpo da sua **Função Assíncrona** ou enquanto estava suspensa durante o `await` - irão rejeitar a `Promise` retornada pela **Função Assíncrona**.  
+Note que ***erros são engolidos "silenciosamente"*** nas **Funções Assíncronas** - assim como em `Promises` normais. A menos que você adicione blocos `try` / `catch` ao redor de chamadas `await`, exceções não capturadas - independentemente se ocorreram no corpo da sua **Função Assíncrona** ou enquanto estava suspensa durante o `await` - irão rejeitar a `Promise` retornada pela **Função Assíncrona**.
 
-Naturalmente isso pode ser visto como um ponto forte: você tem a capacidade de tirar proveito das convenções do uso do `try` / `catch`, algo que você era incapaz de realizar com o uso de `callbacks` - e de alguma forma utilizar com `Promises`. Nesse sentido, **Funções Assíncronas** são semelhantes aos generators, onde você também tinha a capacidade de tirar proveito do uso do `try` / `catch` graças à suspensão da execução da função tornando um fluxo assíncrono em um código síncrono.  
+Naturalmente isso pode ser visto como um ponto forte: você tem a capacidade de tirar proveito das convenções do uso do `try` / `catch`, algo que você era incapaz de realizar com o uso de `callbacks` - e de alguma forma utilizar com `Promises`. Nesse sentido, **Funções Assíncronas** são semelhantes aos generators, onde você também tinha a capacidade de tirar proveito do uso do `try` / `catch` graças à suspensão da execução da função tornando um fluxo assíncrono em um código síncrono.
 
-Além disso, você também é capaz de capturar exceções de fora da **Função Assíncrona**, simplesmente adicionando uma cláusula `.catch` à `Promise` que eles retornam. Enquanto isso é uma forma flexível de combinar o tratamento de erros utilizando `try` / `catch` com cláusulas `.catch` nas `Promises`, também pode levar a uma grande confusão e deixar com que erros fiquem sem tratamento.  
+Além disso, você também é capaz de capturar exceções de fora da **Função Assíncrona**, simplesmente adicionando uma cláusula `.catch` à `Promise` que eles retornam. Enquanto isso é uma forma flexível de combinar o tratamento de erros utilizando `try` / `catch` com cláusulas `.catch` nas `Promises`, também pode levar a uma grande confusão e deixar com que erros fiquem sem tratamento.
 
 ```javascript
 read()
@@ -226,9 +223,9 @@ Nós devemos ter cuidado e educarmos a nós mesmos sobre as diferentes formas em
 
 ## Utilizando `async` / `await` hoje
 
-Uma das formas de se utilizar **Funções Assíncronas** em seu código hoje é através do **Babel**. Isso envolve uma série de módulos, mas você pode sempre criar um módulo que encapsula todos esses outros em um se você preferir. Eu incluí um `npm-run` como uma maneira útil de se manter tudo em pacotes instalados localmente.  
+Uma das formas de se utilizar **Funções Assíncronas** em seu código hoje é através do **Babel**. Isso envolve uma série de módulos, mas você pode sempre criar um módulo que encapsula todos esses outros em um se você preferir. Eu incluí um `npm-run` como uma maneira útil de se manter tudo em pacotes instalados localmente.
 
-```javascript
+```bash
 npm i -g npm-run
 npm i -D \
   browserify \
@@ -244,21 +241,21 @@ echo '{
 }' > .babelrc
 ```
 
-O exemplo a seguir irá compilar o arquivo `example.js` utilizando o **browserify** enquanto utiliza o **babelify** para habilitar o suporte às **Funções Assíncronas**. Você pode então enviar o script para o **node** ou **salvar em disco**.  
+O exemplo a seguir irá compilar o arquivo `example.js` utilizando o **browserify** enquanto utiliza o **babelify** para habilitar o suporte às **Funções Assíncronas**. Você pode então enviar o script para o **node** ou **salvar em disco**.
 
-```javascript
+```bash
 npm-run browserify -t babelify example.js | node
 ```
 
 ## Leitura adicional
 
-O rascunho das [especificações para Funções Assíncronas](https://tc39.github.io/ecmascript-asyncawait/) é bem curto e deve ser uma leitura interessante se você quer aprender mais sobre essa funcionalidade que está por vir.  
+O rascunho das [especificações para Funções Assíncronas](https://tc39.github.io/ecmascript-asyncawait/) é bem curto e deve ser uma leitura interessante se você quer aprender mais sobre essa funcionalidade que está por vir.
 
-Eu colei um pedaço de código abaixo com a finalidade de ajudar você a entender como **Funções Assíncronas** funcionam internamente. Mesmo que não possamos criar novas palavras chave, é importante em termos de compreensão saber o que está acontecendo atrás dar curtinas do `async` / `await`.  
+Eu colei um pedaço de código abaixo com a finalidade de ajudar você a entender como **Funções Assíncronas** funcionam internamente. Mesmo que não possamos criar novas palavras chave, é importante em termos de compreensão saber o que está acontecendo atrás dar curtinas do `async` / `await`.
 
-> É útil saber que **Funções Assíncronas** internamente se aproveitam dos **generators** e das **promises**.  
+> É útil saber que **Funções Assíncronas** internamente se aproveitam dos **generators** e das **promises**.
 
-O código a seguir mostra como uma declaração de uma **Função Assíncrona** pode ser transformada em uma função comum que retorna o resultado alimentando a `spawn` com um generator - onde nós iremos considerar o `await` como o equivalente sintático para `yield`.  
+O código a seguir mostra como uma declaração de uma **Função Assíncrona** pode ser transformada em uma função comum que retorna o resultado alimentando a `spawn` com um generator - onde nós iremos considerar o `await` como o equivalente sintático para `yield`.
 
 ```javascript
 async function example (a, b, c) {
@@ -272,7 +269,7 @@ function example (a, b, c) {
 }
 ```
 
-Na `spawn`, uma promise é encapsulada em volta do código que irá percorrer o generator - composta do código do usuário - em série, repassando valores para o "generator" (corpo da **Função Assíncrona**). Com isso podemos observar que **Funções Assíncronas** são um `syntactic sugar` que utiliza generators e promises, isso faz com que seja importante você entender como cada uma dessas partes trabalham para que você possa ter um melhor entendimento em como você pode misturar, comparar e combinar diferentes tipos de fluxo de código assíncrono juntos.  
+Na `spawn`, uma promise é encapsulada em volta do código que irá percorrer o generator - composta do código do usuário - em série, repassando valores para o "generator" (corpo da **Função Assíncrona**). Com isso podemos observar que **Funções Assíncronas** são um `syntactic sugar` que utiliza generators e promises, isso faz com que seja importante você entender como cada uma dessas partes trabalham para que você possa ter um melhor entendimento em como você pode misturar, comparar e combinar diferentes tipos de fluxo de código assíncrono juntos.
 
 ```javascript
 function spawn (genF, self) {
@@ -303,6 +300,6 @@ function spawn (genF, self) {
 }
 ```
 
-> Os pedaços de códigos mostrados devem ajudá-lo a compreender como o algoritmo do `async` / `await` itera sobre uma sequência de generators (expressões `await`), encapsulando cada item na sequência em uma promise e então encadeando com a próxima sequência. Quando a sequência terminar ou uma das promises são rejeitadas ou a promise é retornada para a função que chamou o generator.  
+> Os pedaços de códigos mostrados devem ajudá-lo a compreender como o algoritmo do `async` / `await` itera sobre uma sequência de generators (expressões `await`), encapsulando cada item na sequência em uma promise e então encadeando com a próxima sequência. Quando a sequência terminar ou uma das promises são rejeitadas ou a promise é retornada para a função que chamou o generator.
 
 Artigo traduzido e adaptado de: [https://ponyfoo.com/articles/understanding-javascript-async-await](https://ponyfoo.com/articles/understanding-javascript-async-await)

@@ -7,10 +7,6 @@ image:
 description: 'Aprenda manipular arquivos binários utilizando Java'
 tags:
 - java
-- servlet
-- io
-categories:
-- Java IO
 twitter_text: 'Aprenda manipular arquivos binários utilizando Java'
 ---
 
@@ -28,7 +24,6 @@ Para esse processo iremos utilizar de duas classes abstratas, `InputStream` e `O
 
 A seguir temos um exemplo onde realizamos o processo de leitura de um arquivo em disco e escrevemos ele num arquivo de saída, assim replicando seu conteúdo.
 
-
 ```java
 InputStream inputStream = new FileInputStream("in.txt");
 OutputStream outputStream = new FileOutputStream("out.txt");
@@ -37,7 +32,7 @@ byte[] buffer = new byte[1024];
 int numBytesDentroBuffer = 0;
 
 while((numBytesDentroBuffer = inputStream.read(buffer))!= -1){
-	outputStream.write(buffer,0,numBytesDentroBuffer);
+    outputStream.write(buffer,0,numBytesDentroBuffer);
 }
 
 inputStream.close();
@@ -93,7 +88,7 @@ BufferedReader bufferedReader = new BufferedReader(fileReader);
 
 String texto;
 while((texto = bufferedReader.readLine())!= null){
-	System.out.println(texto);
+    System.out.println(texto);
 }
 ```
 
@@ -113,8 +108,8 @@ FileWriter fileWriter = new FileWriter(file2);
 BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
 while((texto = bufferedReader.readLine())!= null){
-	bufferedWriter.write(texto);
-	bufferedWriter.newLine();
+    bufferedWriter.write(texto);
+    bufferedWriter.newLine();
 }
 
 bufferedReader.close();

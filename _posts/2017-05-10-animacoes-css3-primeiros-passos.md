@@ -1,16 +1,12 @@
 ---
 layout: post
 title: "Animações com CSS3: Primeiros Passos"
-date: 2017-05-10 17:16:12 +0300
+date: 2017-05-10 17:16:12
 author: claudio
 image:
 description: 'Aprenda como começar a criar animações utilizando CSS3'
 tags:
 - css
-- animações
-- front-end
-categories:
-- Animações com CSS
 twitter_text: 'Aprenda como começar a criar animações utilizando CSS3'
 ---
 

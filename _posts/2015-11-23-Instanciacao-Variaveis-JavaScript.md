@@ -3,13 +3,10 @@ layout: post
 title: "Instanciação de Variáveis no Javascript"
 date: 2015-11-23 22:35:44
 author: wendell
-image: '/assets/img/'
+image: ''
 description: 'Aprenda conceitos fundamentais do JavaScript com esse artigo'
 tags:
 - javascript
-- closure
-categories:
-- Conceitos Básicos de JavaScript
 twitter_text: 'Aprenda conceitos fundamentais do JavaScript com esse artigo'
 ---
 
@@ -96,7 +93,7 @@ muito cuidado ao utilizá-las. Veja o **Exemplo** abaixo:
 var globalVariable = 10;
 
 function editMyGlobal(){
-	globalVariable += 5
+    globalVariable += 5
 }
 
 editMyGlobal();
@@ -112,7 +109,7 @@ Veja o **Exemplo** abaixo:
 
 ```javascript
 function myFunction(param1, param2){
-	console.log(param1 + param2);
+    console.log(param1 + param2);
 }
 
 myFunction(10, 90); // O valor impresso no console será 100
@@ -126,7 +123,7 @@ da **Variável Global** a enviando como parâmetro. Veja o **Exemplo** abaixo:
 var globalVariable = 1000;
 
 function myFunction(param1){
-	param1 = 50;
+    param1 = 50;
 }
 
 myFunction(globalVariable);
@@ -147,7 +144,7 @@ nome. Uma **IIFE** pode ser utilizada com ou sem parâmetros. Veja o **Exemplo**
 
 ```javascript
 (function() {
-	console.log('This is a IIFE!!!It really works!!!');
+    console.log('This is a IIFE!!!It really works!!!');
 })();
 
 (function(param) {

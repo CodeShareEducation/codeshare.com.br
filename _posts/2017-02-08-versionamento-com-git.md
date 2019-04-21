@@ -1,15 +1,14 @@
 ---
 layout: post
-title: "Versionamento com Git"
+title: "Versionamento com Git #01"
 date: 2017-02-08 20:19:02
 author: mcqueide
 image:
 description: 'Aprendendo a versionar projetos com Git'
 tags:
 - git
-- versionamento
 categories:
-- Controle de versão
+- Aprendendo sobre versionamento com Git
 twitter_text: 'Aprendendo a versionar projetos com Git'
 ---
 
@@ -89,7 +88,7 @@ $ git add index.html
   Mudanças a serem submetidas:
     (utilize "git rm --cached <arquivo>..." para não apresentar)
 
-  	new file:   index.html
+  	new file: index.html
 ```
 
 Com isso agora conseguimos realizar o commit de nossas alteração com o comando `git commit`, em seguida será aberto um arquivo de texto temporário no seu terminal semelhante a esse:
@@ -137,7 +136,7 @@ $ git config --global user.email "you@example.com"
 $ git config --global user.name "Your Name"
 ```
 
-Se você quer que seu usuário fique configurado para todos os repositórios do seu usuário da máquina então você pode executar o comando oferecido pelo Git, mas se você quiser que essas informações sejam atribuídas ao repositório específico  no qual está trabalhando então execute os comandos sem o **- -global**:
+Se você quer que seu usuário fique configurado para todos os repositórios do seu usuário da máquina então você pode executar o comando oferecido pelo Git, mas se você quiser que essas informações sejam atribuídas ao repositório específico no qual está trabalhando então execute os comandos sem o **- -global**:
 
 ```bash
 $ git config user.email "you@example.com"
@@ -370,7 +369,7 @@ $ cd treinamentoGIT
 
 ## Retornando conteúdo da branch de desenvolvimento para a master
 
-Nós finalizamos, e agora como retornar o conteúdo da branch desenvolvimento para nossa branch master? Para realizarmos isso teremos que primeiro ir para nossa branch master e atualizar ela. Isso é necessário quando estamos desenvolvendo com outras pessoas num mesmo repositório, então nossa master local pode estar desatualizada em relação a master remota, além disso temos que trazer os novos commits  realizados nela para nossa branch desenvolvimento também de forma que ela fique sincronizada com a master antes de realizarmos a operação de merge.
+Nós finalizamos, e agora como retornar o conteúdo da branch desenvolvimento para nossa branch master? Para realizarmos isso teremos que primeiro ir para nossa branch master e atualizar ela. Isso é necessário quando estamos desenvolvendo com outras pessoas num mesmo repositório, então nossa master local pode estar desatualizada em relação a master remota, além disso temos que trazer os novos commits realizados nela para nossa branch desenvolvimento também de forma que ela fique sincronizada com a master antes de realizarmos a operação de merge.
 
 Primeiro vamos mudar para nossa branch master com o `git checkout master`, depois atualizamos ela com o `git pull`. Feito isso, temos que atualizar nossa branch de desenvolvimento como o novo conteúdo da master, para realizar isso temos duas opções, podemos fazer uso do `git merge`, porém com ele poderemos sujar nosso histórico de modificações com uma operação a mais de merge caso haja algum conflito de arquivos, então a forma mais indicada é utilizar o `git rebase`, com ele conseguiremos fazer a atualização da nossa branch de desenvolvimento sem a necessidade de um commit de merge. Depois temos que voltar para nossa branch master para realizar o merge da branch de desenvolvimento, dessa vez não haverá conflitos porque nossa branch de desenvolvimento já está com todos os commits da master, por causa do rebase. Feito o merge, só nos falta realizar o `git push` para enviar as atualização da master local para a remota.
 

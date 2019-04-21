@@ -6,9 +6,7 @@ author: wendell
 image:
 description: 'Conheça um pouco da história de grandes Devs da comunidade'
 tags:
-- novidades
-- codeshare
-- devtales
+- podcast
 categories:
 - DevTales
 twitter_text: 'Conheça um pouco da história de grandes Devs da comunidade'

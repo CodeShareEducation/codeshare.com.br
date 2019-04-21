@@ -6,9 +6,6 @@ author: wendell
 image: '/assets/img/devTales.png'
 description: 'Conheça um pouco mais desse novo projeto'
 tags:
-- novidades
-- codeshare
-- devtales
 - podcast
 categories:
 - DevTales

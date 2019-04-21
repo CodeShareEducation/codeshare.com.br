@@ -89,7 +89,7 @@ files_to_cache:
 
 pages_to_cache:
   - '/autores/'
-  - '/categorias/'
+  - '/series/'
   - '/sobre/'
   - '/tags/'
   - '/offline/index.html'
@@ -101,8 +101,8 @@ links:
     url: /
   - title: Autores
     url: /autores
-  - title: Categorias
-    url: /categorias
+  - title: Séries
+    url: /series
   - title: Tags
     url: /tags
   - title: Sobre
