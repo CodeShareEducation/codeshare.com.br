@@ -7,6 +7,8 @@ image:
 description: 'Criando temas utilizando variáveis no CSS'
 tags:
 - css
+categories:
+- 'Tematização com CSS'
 twitter_text: 'Criando temas utilizando variáveis no CSS'
 ---
 
@@ -120,7 +122,7 @@ Também fazemos com que alterações sejam muito fáceis de serem feitas. Por ex
 
 Vimos como criar um tema consistente e adaptável para nossos projetos utilizando apenas CSS. Utilizando essa técnica de **Tematização em Duas Camadas**, criamos um ambiente e uma experiência melhor para os times de devs e designers. Abaixo você pode ver uma demonstração do código que criamos durante esse artigo em um Codepen que criei:
 
-<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="css,result" data-user="WendellAdriel" data-slug-hash="QPxRjN" data-preview="true" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Tematização com variáveis CSS">
+<p class="codepen" data-height="500" data-theme-id="dark" data-default-tab="css,result" data-user="WendellAdriel" data-slug-hash="QPxRjN" style="height: 500px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid black; margin: 1em 0; padding: 1em;" data-pen-title="Tematização com variáveis CSS">
   <span>See the Pen <a href="https://codepen.io/WendellAdriel/pen/QPxRjN/">
   Tematização com variáveis CSS</a> by Wendell Adriel (<a href="https://codepen.io/WendellAdriel">@WendellAdriel</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
